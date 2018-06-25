@@ -1,0 +1,21 @@
+<table>
+<tr>
+<th>ID</th>
+<th>First name</th>
+<th>Last name</th>
+<th>City</th>
+<th>Adress</th>
+</tr>
+<%= for user <- @users do %>
+<tr>
+<td><%= user.id %></td>
+<td><%= user.fname %></td>
+<td><%= user.lname %></td>
+<%= for adress <- user.adress do %>
+<td><%= adress.city %></td>
+<td><%= adress.adress %></td>
+<% end %>
+<td><%= link"show", to: testtable_path(@conn, :show, user) %></td>
+</tr>
+
+<% end %>
